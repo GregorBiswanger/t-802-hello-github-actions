@@ -10,6 +10,7 @@ jobs:
     Analysis:
         name: Erste Analyse
         runs-on: ubuntu-latest
+        environment: Production
         outputs:
           secret-message: ${{steps.get_secret_message.outputs.message}}
 
@@ -27,7 +28,7 @@ jobs:
             - name: Secret auf Datev (production) prüfen
               env: 
                 GEHEIM: ${{ secrets.MY_SECRET }}
-              if: env.GEHEIM == 'I love really Datev'
+              if: env.GEHEIM == 'I really love Datev'
               run: echo "Viel liebe für Datev (Production Version)"
 
             - name: Zeige GitHub Kontext
