@@ -19,6 +19,9 @@ jobs:
 
             - name: Aktuelles Verzeichnis ansehen
               run: pwd && ls -al
+
+            - name: JavaScript ausführen
+              run: node hello-world.js
     
     say-bye:
         runs-on: ubuntu-latest
