@@ -15,8 +15,21 @@ jobs:
 
         steps:
             - name: Zeige unser Geheimnis
-              run: echo "Geheimnis lautet:" ${{ secrets.MY_SECRET }} 
-              
+              run: |
+                 echo "Geheimnis lautet: ${{ secrets.MY_SECRET }}"
+
+            - name: Secret auf Datev prüfen
+              env: 
+                GEHEIM: ${{ secrets.MY_SECRET }}
+              if: env.GEHEIM == 'I love Datev'
+              run: echo "Viel liebe für Datev"
+
+            - name: Secret auf Datev (production) prüfen
+              env: 
+                GEHEIM: ${{ secrets.MY_SECRET }}
+              if: env.GEHEIM == 'I love really Datev'
+              run: echo "Viel liebe für Datev (Production Version)"
+
             - name: Zeige GitHub Kontext
               run: echo '${{ toJson(github) }}'
 
