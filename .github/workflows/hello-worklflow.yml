@@ -9,6 +9,7 @@ on:
             - main
             - 'features/**'
             - '!features/old'
+    workflow_dispatch: # mehr möglichkeiten noch zeigen
 
 # Jobs
 jobs:
